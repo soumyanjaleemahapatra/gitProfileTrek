@@ -17,20 +17,13 @@
 		<div v-if="repos">
 			<img :src="owner.avatar_url" class="user__avatar" />
 			<span class="user__name">{{ owner.login }}</span>
-			<RepoList :repos="repos" />
-			<!-- <ul>
-				<li v-for="(repo, index) in repos" :key="repo.id" class="user__repo">
-					<div class="user__repo__item">
-						<span v-if='index===0' class="user__repo__item__label">Repository</span>
-						<span class="user__repo__item__text">{{ repo.full_name }}</span>
-					</div>
-					<div class="user__repo__item">
-						<span v-if='index===0' class="user__repo__item__label">Description</span>
-						<span class="user__repo__item__text">{{ repo.description }}</span>
-					</div>
-					
-				</li>
-			</ul> -->
+			<RepoList v-if="repos.length > 0" 
+				:repos="repos" 
+				:showSortingOptions="showSortingOptions" 
+			/>
+			<!-- <div v-if="repos.length > 0 && showSortingOptions">
+				<RepoListSorting :repos="repos" />
+			</div> -->
 		</div>
 	</div>
 </template>
@@ -51,7 +44,17 @@ export default {
 			errors: [],
 			userName: '',
 			isLoading: false,
+			showSortingOptions: false,
 		};
+	},
+	watch: {
+		userName(newValue) {
+			if (!newValue) {
+				this.repos = [];
+				this.owner.avatar_url = '';
+				this.owner.login = '';
+			}
+		},
 	},
 	methods: {
 		async getUserRepos() {
@@ -76,6 +79,7 @@ export default {
 
 				this.owner = data[0].owner;
 				this.repos = data;
+				this.showSortingOptions = true;
 			} catch (err) {
 				this.errors.push(err);
 			} finally {

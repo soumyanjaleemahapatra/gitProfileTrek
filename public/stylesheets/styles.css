@@ -61,4 +61,22 @@
     padding-bottom: 16px;
     text-transform: uppercase;
   }
+
+  .user__sorting {
+    margin: 20px 0;
+  }
+
+  .user__sorting label {
+    margin-right: 10px;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  .user__sorting select {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    border: 1px solid #bdc3c7; 
+    border-radius: 4px;
+  }
   
