@@ -1,82 +1,158 @@
 .user {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .user__input {
-    margin-bottom: 10px;
-    padding: 5px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.user__input {
+	margin-bottom: 10px;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.user__input--error {
+	border: 1px solid red;
+}
+
+.user__error {
+	color: red;
+	padding: 5px 0 10px 0;
+}
+
+.user__avatar {
+	max-width: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.user__profile {
+	margin-bottom: 10px;
+}
+
+.user__profile__link {
+	text-decoration: none;
+}
+
+.user__profile__text {
+	font-weight: bold;
+	font-size: 22px;
+	color: #1b5e20;
+	transition: text-decoration 0.3s;
+}
+
+.user__profile__text:hover {
+	text-decoration: underline;
+}
+
+.repo__list,
+.user__suggestions {
+	list-style: none;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+.user__suggestions {
+	flex-direction: column;
+	cursor: pointer;
+}
+
+.repo__list__item {
+	flex: 1;
+}
+
+.repo__list__item__label {
+	font-weight: bold;
+	margin-right: 5px;
+	display: block;
+	padding-bottom: 16px;
+	text-transform: uppercase;
+}
+
+.repo__list__item__link {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.repo__list__item__stars {
+	color: gold;
+    margin-left: 5px;
     font-size: 16px;
-  }
-  
-  .user__input--error {
-    border: 1px solid red;
-  }
-  
-  .user__error {
-    color: red;
-    padding: 5px 0 10px 0;
-  }
-  
-  .user__btn {
-    padding: 10px 10px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    margin-bottom: 20px;
+}
+
+.repo__list--wrapper {
+	padding: 0;
+}
+
+.repo__filter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.repo__filter__sorting {
+	margin: 20px 0;
+}
+
+.repo__filter__sorting label {
+	margin-right: 10px;
+	font-weight: 500;
+	color: #2c3e50;
+}
+
+.repo__filter__sorting select {
+	padding: 8px;
+	font-size: 14px;
+	background-color: #ecf0f1;
+	color: #2c3e50;
+	border: none;
+	border-radius: 4px;
+}
+
+.repo-searchbar {
+	width: 500px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	box-sizing: border-box;
+	transition: border-color 0.3s;
   }
   
-  .user__avatar {
-    max-width: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .user__name {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .user__repo {
-    list-style: none;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
-  .user__repo__item {
-    flex: 1;
-  }
-  
-  .user__repo__item__label {
-    font-weight: bold;
-    margin-right: 5px;
-    display: block;
-    padding-bottom: 16px;
-    text-transform: uppercase;
+  .repo-searchbar:focus {
+	outline: none;
+	border-color: #4caf50; /* Green color or any color of your choice */
   }
 
-  .user__sorting {
-    margin: 20px 0;
-  }
+.pagination {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
 
-  .user__sorting label {
-    margin-right: 10px;
-    font-weight: 500;
-    color: #2c3e50;
-  }
-  .user__sorting select {
-    padding: 8px;
-    font-size: 14px;
-    background-color: #ecf0f1; 
-    color: #2c3e50; 
-    border: 1px solid #bdc3c7; 
-    border-radius: 4px;
-  }
-  
+.pagination__button {
+	padding: 8px 12px;
+	border: none;
+	border-radius: 4px;
+	background-color: #4caf50;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.pagination__button:hover {
+	background-color: #45a049;
+}
+
+.pagination__button:disabled {
+	background-color: #e1e4e8;
+	border-color: none;
+	color: #586069;
+	cursor: not-allowed;
+}
