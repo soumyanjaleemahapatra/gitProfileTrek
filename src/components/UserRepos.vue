@@ -73,9 +73,10 @@ export default {
   watch: {
     userName(newValue) {
       this.repos = [];
+      this.errors = [];
+      this.owner.avatar_url = "";
+      this.owner.login = "";
       if (!newValue) {
-        this.owner.avatar_url = "";
-        this.owner.login = "";
         this.showSortingOptions = false;
         this.suggestions = [];
         this.noMatchingRepoFound = false;
@@ -86,8 +87,8 @@ export default {
   },
   methods: {
     fetchUserSuggestionsDebounced: _debounce(async function () {
-      console.log("fetchUserSuggestionsDebounced called");
       try {
+        this.errors = [];
         const suggestions = await this.fetchUserSuggestions(this.userName);
         this.suggestions = suggestions;
       } catch (error) {
@@ -95,7 +96,7 @@ export default {
       }
     }, 300),
     async fetchUserSuggestions(username) {
-      console.log("fetchUserSuggestions called");
+      this.errors = [];
       const apiUrl = `https://api.github.com/search/users?q=${username}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
@@ -138,7 +139,7 @@ export default {
         this.repos = data;
         this.showSortingOptions = true;
       } catch (err) {
-        this.errors.push(err);
+        this.errors.push(err + " Please try again later");
       } finally {
         this.isLoading = false;
       }

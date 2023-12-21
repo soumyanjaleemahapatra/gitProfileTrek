@@ -133,9 +133,6 @@ export default {
         this.currentPage -= 1;
       }
     },
-    /* generateStars(count) {
-      return "*".repeat(count).trim();
-    }, */
     updateRepos(searchedRepos) {
       this.$emit("update-repos", searchedRepos);
     },
